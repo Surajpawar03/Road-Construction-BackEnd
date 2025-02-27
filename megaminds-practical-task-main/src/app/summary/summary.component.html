@@ -1,0 +1,19 @@
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">SamplingTime</th>
+      <th scope="col">Project Name</th>
+      <th scope="col">Construction count </th>
+      <th scope="col">Is Construction Completed </th>
+      <th scope="col">Length of the road </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let list of summaryList">
+      <td>{{list.SamplingTime | date: 'dd-MM-yyyy hh:mm:ss a'}}</td>
+      <ng-container *ngFor="let item of list.Properties">
+        <td>{{item.Value}}</td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

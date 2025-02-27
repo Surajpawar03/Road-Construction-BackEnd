@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4">
+      <ul class="list-group">
+        <ng-container *ngFor="let list of summaryList">
+          <li class="list-group-item" (click)="showSummaryData(list)"
+            [ngClass]="list.id == selectedSummaryData.id ? 'bg-color':''">{{list.SamplingTime | date: 'dd-MM-yyyy hh:mm:ss
+            a'}}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col-8">
+      <div class="card">
+        <div class="">
+          <form class="container col-md-8 m-4" [formGroup]="summaryForm" (ngSubmit)="updateSummary()">
+            <div class="form-group row mt-2">
+              <div class="col-md-4">
+                <label class="col-form-label">Project Name</label>
+              </div>
+              <div class="col-md-8">
+                <input type="text" class="form-control" formControlName="projectname" placeholder="Project Name" />
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <div class="col-md-4">
+                <label class="col-form-label">Construction count</label>
+              </div>
+              <div class="col-md-8">
+                <input type="number" class="form-control" formControlName="constructioncount"
+                  placeholder="Construction count" appNumbersOnly />
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <div class="col-md-4">
+                <label class="col-form-label">Is Construction Completed</label>
+              </div>
+              <div class="col-md-8">
+                <input type="checkbox" formControlName="isconstructioncompleted" class="form-check-input" />
+              </div>
+            </div>
+            <div class="form-group row mt-2">
+              <div class="col-md-4">
+                <label class="col-form-label">Length of the road</label>
+              </div>
+              <div class="col-md-8">
+                <input type="number" class="form-control" formControlName="lengthoftheroad"
+                  placeholder="Length of the road" appNumbersOnly />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-secondary mt-2">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
